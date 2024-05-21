@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* css for header */
+        .header {
+            padding: 5px;
+            background-color: rgb(22 141 176);
+            position: sticky;
+        }
+
+        .title {
+            width: auto;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            display: inline-flex;
+            margin-right: auto;
+        }
+
+        nav ul li {
+            display: inline-flex;
+            flex-direction: row;
+            padding: 4px 40px;
+            padding-left: 24px;
+            padding-right: 24px;
+            justify-content: flex-end;
+            margin-top: 6px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.89);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            height: 42px;
+            max-width: 1400px;
+            justify-content: flex-end;
+            color: aliceblue;
+            background-color: rgb(17 141 177 / 86%);
+        }
+
+        #register {
+            border: 2px solid white;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.878);
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: rgb(255, 255, 255)
+        }
+
+        #register:hover {
+            background-color: white;
+            color: rgba(20, 182, 79, 0.863);
+        }
+
+        /* css for main */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .main-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+            margin-left: 23px;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"], input[type="password"], select {
+            width: calc(92% - 14px);
+            padding: 9px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:nth-child(odd),
+        input[type="tel"]:nth-child(odd),
+        input[type="email"]:nth-child(odd),
+        input[type="password"]:nth-child(odd),
+        select:nth-child(odd) {
+            margin-right: 20px;
+        }
+
+        input[type="text"]:nth-child(even),
+        input[type="tel"]:nth-child(even),
+        input[type="email"]:nth-child(even),
+        input[type="password"]:nth-child(even),
+        select:nth-child(even) {
+            margin-left: 20px;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #2ecc71;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2ecc71;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+
+        .form-group {
+            flex: 0 0 calc(50% - 40px);
+            margin-bottom: 20px;
+        }
+
+        /* css for footer */
+        .footer {
+            background-color: black;
+            color: white;
+        }
+
+        .list a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.849);
+            padding: 8px;
+            margin: 10px;
+        }
+
+        .list a:hover {
+            color: white;
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 30px 18px;
+            margin: 0px;
+            background-color: rgb(26, 25, 25);
+        }
+
+        .copyright {
+            padding: 14px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="title">
+                <h1 style="color: rgb(223, 229, 232);">Vehicle Management System</h1>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="/login">login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <h1>Register</h1>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <label for="username">Name</label>
+                <input type="text" id="user_name" name="user_name" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone_no" name="phone_no" placeholder="Enter your contact number" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="user_password" name="user_password" placeholder="Enter your password" required>
+            </div>
+
+            {% if error|length !=0 %} 
+            <div class="alert" style="color: red;">
+                {{ error }} <a href="./login">Login</a>
+            </div>
+            {% endif %}
+            {% if sucess|length != 0 %}
+            <div class="alert" style="color: red;">
+                {{ sucess }}<a href="./">Login</a>
+            </div>
+            {% endif %}
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="social">
+            <div class="list">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Thread</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 Title. All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

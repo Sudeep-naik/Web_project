@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 1000vh;
+            /* Ensure the body occupies the entire viewport height */
+        }
+
+        header,
+        footer {
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            /* text-align: center; */
+        }
+
+        main {
+            flex: 1;
+            /* Allow main to grow and occupy remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            flex: 1;
+            max-width: 100px;
+            color: black;
+        }
+
+        .user-details {
+            background-color: #2eafff;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-actions {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            white-space: nowrap;
+        }
+
+        .user-actions a {
+            display: flexbox;
+            justify-content: space-between;
+            background-color: #3399ff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 100px 70px;
+        }
+
+        .user-actions a:hover {
+            background-color: #2eafff;
+        }
+
+        footer {
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="max-height: 60px; display: flex; justify-content: space-between; padding: 0 30px;">
+        <h1 style="margin: 20px;">Title</h1>
+        <nav>
+            <ul style="display: flex; justify-content: flex-end; margin: 15px; ">
+                <li type="none" style="white-space: nowrap;"><a href="#">Nav Bar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="user-details">
+            <h2>User Details</h2>
+            <!-- Add user details content here -->
+        </section>
+        <section class="user-actions">
+            <a href="#">Add Vehicle</a>
+            <a href="#">Documents</a>
+        </section>
+
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+
+</html>
