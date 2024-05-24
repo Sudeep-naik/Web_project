@@ -138,5 +138,22 @@ def signup():
 
     return render_template('/sign_up.html')
 
+
+@app.route('/add_vehicle',methods=['POST','GET'])
+def add_vehicle():
+    if request.method == 'POST':
+        user_id =  session['user_id']
+        vehicle_name = request.form['vehicle_name']
+        make = request.form['make']
+        model = request.form['model']
+        make_year = request.form['make_year']
+        licence_number = request.form['licence_number']
+
+        vehicle=Vehicle(user_id=user_id,vehicle_name=vehicle_name,make=make,model=model,make_year=make_year,licence_number=licence_number)
+        db.session.add(vehicle)
+        db.session.commit()
+        return render_template("/registeration.html")
+    return render_template("/add_vehicle.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
