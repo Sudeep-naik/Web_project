@@ -101,6 +101,16 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
+    if session['user_id']:
+        user_id=session['user_id']
+        user=User.query.filter_by(user_id=user_id).first()
+        vehicles = Vehicle.query.filter_by(user_id=user_id).all()
+        # print(user)
+        # print(complaints_on_me )
+        # print("Personal Complaints:", personal_complaints)
+        # print("Department Complaints:", department_complaints)
+        # print("Complaints On Me:", complaints_on_me)
+        return render_template('/homepage.html',user=user,vehicles=vehicles)
 
     return render_template("homepage.html")
 
@@ -115,7 +125,6 @@ def signup():
         email=request.form['email']
         user_password=request.form['user_password']
         
-    
         user_exist=User.query.filter_by(email=email).first()
         if user_exist:
             error="User already Exists"
