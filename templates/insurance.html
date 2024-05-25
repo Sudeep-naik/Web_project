@@ -147,7 +147,6 @@
         }
 
         input[type="text"],
-        input[type="number"],
         input[type="date"],
         input[type="file"] {
             width: 100%;
@@ -225,20 +224,16 @@
     </header>
     <main class="main-content">
         <div class="form-container">
-            <h1>Registration Document</h1>
-            <form id="registration-form" action="{{ url_for('add_registeration', vehicle_id=vehicle_id) }}" method="POST" enctype="multipart/form-data">
+            <h1>Insurance Document</h1>
+            <form id="insurance-form" action="{{ url_for('add_insurance', vehicle_id=vehicle_id) }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="document_name">Document Name</label>
-                    <input type="text" id="document_name" name="document_name" required>
+                    <label for="policy_number">Policy Number</label>
+                    <input type="text" id="policy_number" name="policy_number">
                 </div>
                 <div class="form-group">
-                    <label for="document_number">Document Number</label>
-                    <input type="text" id="document_number" name="document_number">
+                    <label for="expire_date">Expire Date</label>
+                    <input type="date" id="expire_date" name="expire_date">
                 </div>
-                <div class="form-group">
-                    <label for="expiration_date">Expiration Date</label>
-                    <input type="date" id="expiration_date" name="expiration_date">
-                </div> 
                 <div class="form-group">
                     <label for="file_path">Upload Document</label>
                     <input type="file" id="file_path" name="file_path" required>
