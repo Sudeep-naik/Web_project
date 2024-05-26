@@ -269,5 +269,19 @@ def get_file(file_path):
                                    as_attachment=True)
     except FileNotFoundError:
         abort(404, description="File not found")
+
+@app.route('/admin')
+def admin_users():
+    users = User.query.all()
+    return render_template('admin_user.html', users=users)
+
+
+@app.route('/admin/users/<string:user_id>/vehicles')
+def admin_user_vehicles(user_id):
+    user = User.query.get_or_404(user_id)
+    vehicles = Vehicle.query.filter_by(user_id=user_id).all()
+    return render_template('admin_vehicle.html', user=user, vehicles=vehicles)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
