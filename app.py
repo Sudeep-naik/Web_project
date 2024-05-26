@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, render_template, send_from_directory,session
+from flask import Flask, abort, request, redirect, url_for, render_template, send_from_directory,session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 import os
@@ -245,5 +245,29 @@ def add_emission(vehicle_id):
     return render_template('/emission.html',vehicle_id=vehicle_id)
 
 
+@app.route('/view_documents/<int:vehicle_id>', methods=['GET'])
+def view_documentts(vehicle_id):
+    insurance_docs = InsuranceDocument.query.filter_by(vehicle_id=vehicle_id).all()
+    registration_docs = RegistrationDocument.query.filter_by(vehicle_id=vehicle_id).all()
+    emission_docs = EmissionDocument.query.filter_by(vehicle_id=vehicle_id).all()
+
+    if not insurance_docs and not registration_docs and not emission_docs:
+        abort(404, description="No documents found for the given vehicle ID")
+
+    return render_template('display.html', 
+                           vehicle_id=vehicle_id, 
+                           insurance_docs=insurance_docs, 
+                           registration_docs=registration_docs, 
+                           emission_docs=emission_docs)
+
+
+@app.route('/get_file/<path:file_path>')
+def get_file(file_path):
+    try:
+        return send_from_directory(directory=os.path.dirname(file_path), 
+                                   path=os.path.basename(file_path), 
+                                   as_attachment=True)
+    except FileNotFoundError:
+        abort(404, description="File not found")
 if __name__ == '__main__':
     app.run(debug=True)
